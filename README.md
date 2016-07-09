@@ -1,2 +1,5 @@
-# terminal_apps
+# Terminal Apps
 Basic self-contained terminal scripts
+
+#### typing.py
+A simple Python game to practice typing.
