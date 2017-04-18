@@ -23,7 +23,7 @@ def setup():
 	global letters_in_a_row
 
 	while True:
-		number_correct_needed = raw_input('How many correct responses in a row do you want to require? ')
+		number_correct_needed = input('How many correct responses in a row do you want to require? ')
 		try:
 			if int(number_correct_needed) > 0:
 				number_correct_needed = int(number_correct_needed)
@@ -37,7 +37,7 @@ def setup():
 	print('Which letters would you like to practice?')
 	choice = None
 	while choice == None:
-		choice = raw_input('Choose (h)ome row, (u)pper row, (b)ottom row, (n)umbers, all (l)etters, (a)ll rows, or (w)ords. ')
+		choice = input('Choose (h)ome row, (u)pper row, (b)ottom row, (n)umbers, all (l)etters, (a)ll rows, or (w)ords. ')
 		if choice == 'h':
 			choice = home_row
 		elif choice == 'u':
@@ -57,7 +57,7 @@ def setup():
 			print('Try again. Please choose an option.')
 
 	while True:
-		letters_in_a_row = raw_input('How many characters in a row do you want each prompt to be? ')
+		letters_in_a_row = input('How many characters in a row do you want each prompt to be? ')
 		try:
 			if int(letters_in_a_row) > 0:
 				letters_in_a_row = int(letters_in_a_row)
@@ -79,23 +79,23 @@ def practice(letters, count, length):
 		else:			
 			display = ''.join(display)
 		print(display)
-		print ''
-		input = raw_input()
-		if input == display:
+		print('')
+		input_var = input()
+		if input_var == display:
 			counter += 1
 		else:
 			wrong_counter += 1
 			counter = 0
 		print('(' + str(counter) + '/' + str(count) + ')')
-		print ''
-		print ''
+		print('')
+		print('')
 	elapsed_time = time.time() - start_time
 	print('Congratulations! You matched ' + str(count) + ' in a row!')
 	print('It took you ' + str(round(elapsed_time, 1)) + ' seconds to complete your exercises!')
 	print('You were incorrect a total of ' + str(wrong_counter) + ' times.')
-	print ''
+	print('')
 	print('Would you like to play again?')
-	next = raw_input('(s)ame settings, (n)ew settings, or (e)xit\n')
+	next = input('(s)ame settings, (n)ew settings, or (e)xit\n')
 	if next == 's':
 		practice(choice, number_correct_needed, letters_in_a_row)
 	elif next == 'n':
